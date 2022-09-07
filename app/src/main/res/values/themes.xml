@@ -2,6 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.YogiEottae" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
+
+        <item name="windowNoTitle">true</item> <!--        위에 부분을 안보이게-->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>

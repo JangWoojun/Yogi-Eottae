@@ -13,17 +13,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YogiEottae"
         tools:targetApi="31">
+<!--        앱 켰을 때 첫 시작을 스플래쉬로 설정-->
         <activity
             android:name=".SplashActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
         </activity>
     </application>
 
