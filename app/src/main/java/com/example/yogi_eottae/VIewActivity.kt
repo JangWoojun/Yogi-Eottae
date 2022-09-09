@@ -7,6 +7,7 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.TextView
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
@@ -38,6 +39,7 @@ class  VIewActivity : AppCompatActivity() {
 
         val saveText = findViewById<TextView>(R.id.save) // id save 버튼을 누르면
         saveText.setOnClickListener {
+            Toast.makeText(this,"찜 하셨습니다", Toast.LENGTH_LONG).show()
             myBookmarkRef
                 .child(auth.currentUser!!.uid) //현재 유저의 uid값으로 저장한다
                 .push()
