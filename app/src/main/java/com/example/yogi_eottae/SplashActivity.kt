@@ -9,7 +9,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 class SplashActivity : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth
+    private lateinit var auth: FirebaseAuth // firebase에서 uid가져오기로 추정
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)

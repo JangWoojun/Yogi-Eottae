@@ -6,12 +6,19 @@ import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.TextView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class  VIewActivity : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view)
 
+        auth = Firebase.auth
 
         val webView = findViewById<WebView>(R.id.webview)
         webView.apply {
@@ -20,6 +27,24 @@ class  VIewActivity : AppCompatActivity() {
             webViewClient = WebViewClient() // 하이퍼링크 클릭시 새창 띄우기 방지
         }
 
-        webView.loadUrl(intent.getStringExtra("url").toString())
+        webView.loadUrl(intent.getStringExtra("url").toString()) // load한다 intent에 있는 url이란 값을
+
+        val database = Firebase.database
+        val myBookmarkRef = database.getReference("bookmark_ref")
+
+        val url = intent.getStringExtra("url").toString()
+        val title = intent.getStringExtra("title").toString()
+        val imgUrl = intent.getStringExtra("imgUrl").toString()
+
+        val saveText = findViewById<TextView>(R.id.save) // id save 버튼을 누르면
+        saveText.setOnClickListener {
+            myBookmarkRef
+                .child(auth.currentUser!!.uid) //현재 유저의 uid값으로 저장한다
+                .push()
+                .setValue(ContaentsModel(url,imgUrl,title)) // ContaentsModel에 있는 url,imgUrl,title을 저장
+        }
+
+
+
     }
 }

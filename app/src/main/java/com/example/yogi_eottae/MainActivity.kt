@@ -48,6 +48,8 @@ class MainActivity : AppCompatActivity() {
             override fun onClick(view: View, position: Int) {
                 val intent = Intent(baseContext,VIewActivity::class.java)
                 intent.putExtra("url",items[position].url)// url을 담아보내겠다
+                intent.putExtra("title",items[position].titleText)// titleText을 담아보내겠다
+                intent.putExtra("imgUrl",items[position].imageUrl)// imageUrl을 담아보내겠다
                 startActivity(intent)
             }
 
