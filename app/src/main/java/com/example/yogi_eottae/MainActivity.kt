@@ -40,13 +40,56 @@ class MainActivity : AppCompatActivity() {
                 "식신"
             )
         )
-        items.add( //
+        items.add( // items에 넣는다
             ContaentsModel(
-                "https://www.mangoplate.com/restaurants/W867TiSv5M",
+                "https://www.diningcode.com/profile.php?rid=1c1uOUTGZopQ",
                 "https://d12zq4w4guyljn.cloudfront.net/20220601122546_photo1_93fea0d9f321.jpg",
-                "망고플레이트"
+                "다이닝 코드"
             )
         )
+        items.add( //
+            ContaentsModel(
+                "https://www.siksinhot.com/P/254616",
+                "https://d12zq4w4guyljn.cloudfront.net/20220601122546_photo1_93fea0d9f321.jpg",
+                "식신"
+            )
+        )
+        items.add( //
+            ContaentsModel(
+                "https://www.siksinhot.com/P/254616",
+                "https://d12zq4w4guyljn.cloudfront.net/20220601122546_photo1_93fea0d9f321.jpg",
+                "식신"
+            )
+        )
+        items.add( // items에 넣는다
+            ContaentsModel(
+                "https://www.diningcode.com/profile.php?rid=1c1uOUTGZopQ",
+                "https://d12zq4w4guyljn.cloudfront.net/20220601122546_photo1_93fea0d9f321.jpg",
+                "다이닝 코드"
+            )
+        )
+        items.add( //
+            ContaentsModel(
+                "https://www.siksinhot.com/P/254616",
+                "https://d12zq4w4guyljn.cloudfront.net/20220601122546_photo1_93fea0d9f321.jpg",
+                "식신"
+            )
+        )
+        items.add( // items에 넣는다
+            ContaentsModel(
+                "https://www.diningcode.com/profile.php?rid=1c1uOUTGZopQ",
+                "https://d12zq4w4guyljn.cloudfront.net/20220601122546_photo1_93fea0d9f321.jpg",
+                "다이닝 코드"
+            )
+        )
+        items.add( //
+            ContaentsModel(
+                "https://www.siksinhot.com/P/254616",
+                "https://d12zq4w4guyljn.cloudfront.net/20220601122546_photo1_93fea0d9f321.jpg",
+                "식신"
+            )
+        )
+
 
         val Logout = findViewById<TextView>(R.id.logout)
         Logout.setOnClickListener {
@@ -70,6 +113,6 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        recyclerview.layoutManager = GridLayoutManager(this,2) // 두줄로 표시되게
+        recyclerview.layoutManager = GridLayoutManager(this,1) // 두줄로 표시되게
     }
 }

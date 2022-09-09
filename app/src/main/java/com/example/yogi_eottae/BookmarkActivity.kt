@@ -43,7 +43,7 @@ class BookmarkActivity : AppCompatActivity() {
                         //위에 생성한 contaentsModels에 dataModel에 값을 ContaentsModel 형태로 넣는다
 
                     }
-                    rvAdapter.notifyDataSetChanged() // 웨 for문이 끝나면 rvAdpter 작업 진행
+                    rvAdapter.notifyDataSetChanged() // 웨 for문이 끝나면 그 위 rvAdpter 작업 진행
                 }
 
                 override fun onCancelled(error: DatabaseError) {
