@@ -16,8 +16,18 @@ class RVAdapter(val context: Context,val List : MutableList<ContaentsModel>):Rec
         return ViewHolder(v)
     }
 
+    interface ItemClick {
+        fun onClick (view:View,position: Int) //아이템 클릭 구현
+    }
+    var itemClick : ItemClick? = null
+
     // onCreateViewHolder에서 가져와서 view에 실제 데이터 연결
     override fun onBindViewHolder(holder: RVAdapter.ViewHolder, position: Int) {
+        if (itemClick != null) {
+            holder?.itemView?.setOnClickListener { v->
+                itemClick!!.onClick(v,position) //아이템 클릭 구현
+            }
+        }
         holder.bindItems(List[position])
 
     }

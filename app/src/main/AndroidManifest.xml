@@ -2,10 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.yogi_eottae">
-
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+
+        android:hardwareAccelerated="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,7 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YogiEottae"
         tools:targetApi="31">
-<!--        앱 켰을 때 첫 시작을 스플래쉬로 설정-->
+        <activity
+            android:name=".VIewActivity"
+            android:exported="false" />
+        <!-- 앱 켰을 때 첫 시작을 스플래쉬로 설정 -->
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -25,12 +31,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>
