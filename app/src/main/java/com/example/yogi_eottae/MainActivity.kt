@@ -48,7 +48,12 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-
+        val Logout = findViewById<TextView>(R.id.logout)
+        Logout.setOnClickListener {
+            Firebase.auth.signOut()
+            val intent = Intent(this, JoinActivity::class.java)
+            startActivity(intent) // JoinActivity로 이동
+        }
 
         val recyclerview = findViewById<RecyclerView>(R.id.rv)
         val rvAdapter = RVAdapter(baseContext,items) // RVAdapter 연결 baseContext랑 items를 보냄
