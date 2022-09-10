@@ -1,8 +1,12 @@
 package com.example.yogi_eottae
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
@@ -31,6 +35,16 @@ class BookmarkActivity : AppCompatActivity() {
         val rvAdapter = RVAdapter(baseContext,contaentsModels) // RVAdapter 연결 baseContext랑 contaentsModelsdm을 보냄
         recyclerview.adapter = rvAdapter
 
+        rvAdapter.itemClick = object : RVAdapter.ItemClick {
+            override fun onClick(view: View, position: Int) {
+                val intent = Intent(baseContext,VIewActivity::class.java)
+                intent.putExtra("url",contaentsModels[position].url)// url을 담아보내겠다
+                intent.putExtra("title",contaentsModels[position].titleText)// titleText을 담아보내겠다
+                intent.putExtra("imgUrl",contaentsModels[position].imageUrl)// imageUrl을 담아보내겠다
+                startActivity(intent)
+            }
+
+        }
         recyclerview.layoutManager = GridLayoutManager(this,2) // 두줄로 표시되게
 
         myBookmarkRef
@@ -51,6 +65,8 @@ class BookmarkActivity : AppCompatActivity() {
                 }
 
             })
+
+
 
     }
 }
